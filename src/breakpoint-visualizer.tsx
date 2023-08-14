@@ -27,6 +27,7 @@ export const BreakpointVisualizer = ({
     <div className="sticky top-0 w-full z-40 h-10 flex justify-center items-center overflow-hidden bg-white dark:bg-black">
       {sortedBreakpoints.map(({ name, min, max }, index) => (
         <div
+          key={name}
           className={
             "pl-2 flex items-center absolute top-0 h-full left-1/2 -translate-x-1/2 border border-t-0 bg-white dark:bg-black " +
             (index === 0 ? "border-l-0 border-r-0" : "")
