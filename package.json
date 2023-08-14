@@ -1,6 +1,6 @@
 {
   "name": "react-breakpoint-visualizer",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "React Breakpoint Visualizer",
   "main": "dist/index.js",
   "types": "types/src/index.d.ts",

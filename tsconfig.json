@@ -7,15 +7,12 @@
     "moduleResolution": "node",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["node"],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "target": "es6",
-    "module": "esnext",
-    "typeRoots": ["node_modules/@types", "types"],
   },
   "include": [
     "**/*.ts",
@@ -23,5 +20,5 @@
     "**/*.js",
     "**/*.jsx",
   ],
-  "exclude": ["node_modules", "storybook-static", "dist", "lib"]
+  "exclude": ["node_modules", "dist"]
 }
