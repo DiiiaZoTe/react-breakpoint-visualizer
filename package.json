@@ -1,0 +1,44 @@
+{
+  "name": "react-breakpoint-visualizer",
+  "version": "1.0.0",
+  "description": "React Breakpoint Visualizer",
+  "main": "dist/index.js",
+  "types": "types/src/index.d.ts",
+  "keywords": [
+    "Breakpoint",
+    "Visualizer",
+    "React",
+    "Responsive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiiiaZoTe/react-breakpoint-visualizer"
+  },
+  "author": "Alex Vencel",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cleanup:unix": "rm -rf dist && rm -rf types",
+    "cleanup:win": "rmdir /s /q dist && rmdir /s /q types",
+    "build:dist": "babel src -d dist --extensions \".ts,.tsx\" --ignore \"**/*.test.tsx\"",
+    "build:types": "tsc -d --emitDeclarationOnly --outDir types",
+    "build": "npm run cleanup:win && npm run build:dist && npm run build:types",
+    "publish": "npm publish --access public"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-proposal-do-expressions": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.0",
+    "@types/node": "^20.5.0",
+    "react": "^18.2.0",
+    "typescript": "^4.9.5",
+    "use-breakpoint": "^3.1.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "use-breakpoint": "^3.1.1",
+    "tailwindcss": "^3.3.3"
+  }
+}
