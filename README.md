@@ -1,6 +1,5 @@
 <div align="center">
   <h1>react-breakpoint-visualizer</h1>
-  <b>v1.0.0</b>
 </div>
 
 ---

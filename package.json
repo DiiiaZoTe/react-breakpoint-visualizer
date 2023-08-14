@@ -1,6 +1,6 @@
 {
   "name": "react-breakpoint-visualizer",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "React Breakpoint Visualizer",
   "main": "dist/index.js",
   "types": "types/src/index.d.ts",
@@ -40,5 +40,8 @@
     "react": "^18.2.0",
     "use-breakpoint": "^3.1.1",
     "tailwindcss": "^3.0.0"
-  }
+  },
+  "files": [
+    "*"
+  ]
 }
