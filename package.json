@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DiiiaZoTe/react-breakpoint-visualizer"
+    "url": "git+https://github.com/DiiiaZoTe/react-breakpoint-visualizer.git"
   },
   "author": "Alex Vencel",
   "license": "ISC",
