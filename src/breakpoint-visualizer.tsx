@@ -21,7 +21,7 @@ export const BreakpointVisualizer = ({
       .reverse();
   }, [breakpoints]);
 
-  const { breakpoint } = useBreakpoint(breakpoints, "2xl");
+  const { breakpoint } = useBreakpoint(breakpoints, sortedBreakpoints[0].name);
 
   return (
     <div className="sticky top-0 w-full z-40 h-10 flex justify-center items-center overflow-hidden bg-white dark:bg-black">
