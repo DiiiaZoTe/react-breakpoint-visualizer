@@ -93,13 +93,18 @@ export const BreakpointVisualizer = ({
             transform: "translateX(-50%)",
             border: "1px solid grey",
             borderTop: "0",
+            borderColor: "rgb(75,75,75)",
             width: max ? `${max}px` : "100%",
             minWidth: `${min}px`,
             ...(index === 0 ? { borderLeft: "0", borderRight: "0" } : {}),
           }}
         >
           <p
-            style={{ fontSize: "small", color: "white", paddingLeft: "10px;" }}
+            style={{
+              fontSize: "small",
+              color: "rgb(75,75,75)",
+              paddingLeft: "10px;",
+            }}
           >
             {name}
           </p>
