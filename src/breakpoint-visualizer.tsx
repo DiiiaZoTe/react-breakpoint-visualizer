@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 import useBreakpoint from "use-breakpoint";
 import { BreakpointsType } from "./types";
 
@@ -10,6 +10,8 @@ export const BreakpointVisualizer = ({
 }: {
   breakpoints: BreakpointsType;
 }) => {
+  const [isVisible, setIsVisible] = useState(true);
+
   const sortedBreakpoints = useMemo(() => {
     return Object.entries(breakpoints)
       .map((entry, index, array) => {
@@ -23,23 +25,89 @@ export const BreakpointVisualizer = ({
 
   const { breakpoint } = useBreakpoint(breakpoints, sortedBreakpoints[0].name);
 
-  return (
-    <div className="sticky top-0 w-full z-[9998] h-10 flex justify-center items-center overflow-hidden bg-white dark:bg-black">
-      <p className="relative z-[9999] text-black dark:text-white">
-        {breakpoint}
-      </p>
+  return !isVisible ? (
+    <button
+      onClick={() => setIsVisible(true)}
+      style={{
+        position: "fixed",
+        top: "10px",
+        right: "10px",
+        zIndex: 10000,
+        backgroundColor: "rgba(255,255,255,0.2)",
+        border: "none",
+        padding: "4px",
+        color: "white",
+        cursor: "pointer",
+        fontSize: "12px",
+        borderRadius: "4px",
+      }}
+    >
+      Open
+    </button>
+  ) : (
+    <div
+      style={{
+        position: "sticky",
+        top: "0px",
+        width: "100%",
+        zIndex: 9998,
+        height: "40px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        overflow: "hidden",
+        backgroundColor: "black",
+        color: "white",
+      }}
+    >
+      <button
+        onClick={() => setIsVisible(false)}
+        style={{
+          position: "absolute",
+          right: "10px",
+          zIndex: 10000,
+          backgroundColor: "rgba(255,255,255,0.2)",
+          border: "none",
+          padding: "4px",
+          color: "white",
+          cursor: "pointer",
+          fontSize: "12px",
+          borderRadius: "4px",
+        }}
+      >
+        Close
+      </button>
+
       {sortedBreakpoints.map(({ name, min, max }, index) => (
         <div
           key={name}
-          className={
-            "z-[9998] pl-2 flex items-center absolute top-0 h-full left-1/2 -translate-x-1/2 border border-t-0 bg-white dark:bg-black " +
-            (index === 0 ? "border-l-0 border-r-0" : "")
-          }
-          style={{ width: max ? `${max}px` : "100%", minWidth: `${min}px` }}
+          style={{
+            zIndex: 9998,
+            paddingLeft: "2px",
+            display: "flex",
+            alignItems: "center",
+            position: "absolute",
+            top: "0px",
+            height: "100%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            border: "1px solid grey",
+            borderTop: "0",
+            width: max ? `${max}px` : "100%",
+            minWidth: `${min}px`,
+            ...(index === 0 ? { borderLeft: "0", borderRight: "0" } : {}),
+          }}
         >
-          <p className="text-sm text-black/50 dark:text-white/50">{name}</p>
+          <p
+            style={{ fontSize: "small", color: "white", paddingLeft: "10px;" }}
+          >
+            {name}
+          </p>
         </div>
       ))}
+      <p style={{ position: "relative", zIndex: 9999, color: "white" }}>
+        {breakpoint}
+      </p>
     </div>
   );
 };
