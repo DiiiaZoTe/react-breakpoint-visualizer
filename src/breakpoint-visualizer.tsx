@@ -24,12 +24,15 @@ export const BreakpointVisualizer = ({
   const { breakpoint } = useBreakpoint(breakpoints, sortedBreakpoints[0].name);
 
   return (
-    <div className="sticky top-0 w-full z-40 h-10 flex justify-center items-center overflow-hidden bg-white dark:bg-black">
+    <div className="sticky top-0 w-full z-[9998] h-10 flex justify-center items-center overflow-hidden bg-white dark:bg-black">
+      <p className="relative z-[9999] text-black dark:text-white">
+        {breakpoint}
+      </p>
       {sortedBreakpoints.map(({ name, min, max }, index) => (
         <div
           key={name}
           className={
-            "pl-2 flex items-center absolute top-0 h-full left-1/2 -translate-x-1/2 border border-t-0 bg-white dark:bg-black " +
+            "z-[9998] pl-2 flex items-center absolute top-0 h-full left-1/2 -translate-x-1/2 border border-t-0 bg-white dark:bg-black " +
             (index === 0 ? "border-l-0 border-r-0" : "")
           }
           style={{ width: max ? `${max}px` : "100%", minWidth: `${min}px` }}
@@ -37,7 +40,6 @@ export const BreakpointVisualizer = ({
           <p className="text-sm text-black/50 dark:text-white/50">{name}</p>
         </div>
       ))}
-      <p className="z-50">{breakpoint}</p>
     </div>
   );
 };
